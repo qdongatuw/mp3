@@ -2,7 +2,7 @@ import music_tag
 from tkinter import filedialog
 
 
-img = r"C:\Users\dongq\OneDrive\桌面\img.jpg"
+img = r"C:\Users\dongq\OneDrive\桌面\Mason_music.jpeg"
 
 files = filedialog.askopenfilenames()
 for file in files:
