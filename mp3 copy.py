@@ -8,5 +8,5 @@ cnt = len(files)
 index = 0
 for file in files:
     index += 1
-    convert_to_traditional(file)
+    add_pinyin(file)
     print(f'{index}/{cnt}')
