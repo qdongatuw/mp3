@@ -16,6 +16,9 @@ def add_pinyin(mp3_path):
     mp3['artist'] = to_pinyi(mp3['artist'].value)
     mp3.save()
 
+def add_artwork(mp3_path):
+    pass
+
 
 def convert_to_traditional(mp3_path):
     mp3 = music_tag.load_file(mp3_path)
