@@ -5,7 +5,9 @@ from hanziconv import HanziConv
 
 def to_pinyi(s):
     p = Pinyin()
-    return f'{p.get_pinyin(s, ' ').title()} {s}'
+    py = p.get_pinyin(s, ' ').title()
+    # return p.get_pinyin(s, ' ').title()
+    return f'{py} {s}'
 
 def to_traditional(s):
     return(HanziConv.toTraditional(s))
@@ -15,6 +17,19 @@ def add_pinyin(mp3_path):
     mp3 = music_tag.load_file(mp3_path)
     mp3['artist'] = to_pinyi(mp3['artist'].value)
     mp3.save()
+
+
+def simplify(mp3_path):
+    mp3 = music_tag.load_file(mp3_path)
+    original_artist = mp3['artist'].value.strip()
+    lenth = len(original_artist)
+    head = original_artist[:int(lenth/2)]
+    tail = original_artist[-int(lenth/2):]
+
+    if head.lower() == tail.lower():
+        mp3['artist'] = tail
+        mp3.save()
+
 
 def add_artwork(mp3_path):
     pass
