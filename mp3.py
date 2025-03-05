@@ -5,7 +5,7 @@ from hanziconv import HanziConv
 
 def to_pinyi(s):
     p = Pinyin()
-    return p.get_pinyin(s, ' ').title() + s
+    return f'{p.get_pinyin(s, ' ').title()} {s}'
 
 def to_traditional(s):
     return(HanziConv.toTraditional(s))
@@ -33,3 +33,5 @@ if __name__ == '__main__':
     print(to_traditional('test 测试'))
     print(to_traditional('测试·新的测试'))
     print(to_traditional('测test试'))
+    print(to_pinyi('测试'))
+    print(to_pinyi('test'))
