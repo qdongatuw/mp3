@@ -1,5 +1,5 @@
 from tkinter import filedialog
-from mp3 import add_pinyin, convert_to_traditional, simplify
+from mp3 import add_pinyin, convert_to_traditional, simplify, png2jpg
 from tqdm import tqdm
 
 
@@ -9,7 +9,8 @@ for file in tqdm(files):
     try: 
         # convert_to_traditional(file)
         # add_pinyin(file)
-        simplify(file)
+        # simplify(file)
+        png2jpg(file)
     except Exception as e:
         print(file)
         print(e)
