@@ -12,7 +12,6 @@ for file in tqdm(files):
         # simplify(file)
         png2jpg(file)
     except Exception as e:
-        print(file)
         print(e)
         continue
 

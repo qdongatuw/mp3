@@ -49,21 +49,25 @@ def png2jpg(mp3_path):
     audio = music_tag.load_file(mp3_path)
 
     # Check if there's an embedded cover image
-    if 'art' in audio and audio['art']:
+    if 'artwork' in audio and audio['artwork']:
         # Extract the image data
-        image_data = audio['art'][0].data
+        image_data = audio['artwork'].value
 
+        print(type(image_data))
         # Convert PNG to JPEG if necessary
-        image = Image.open(io.BytesIO(image_data))
+        image = Image.open(io.BytesIO(image_data.data))
+        print(image.format)
         if image.format == "PNG":
+            print(mp3_path)
             jpeg_buffer = io.BytesIO()
             image = image.convert("RGB")  # Convert to RGB to ensure compatibility
             image.save(jpeg_buffer, format="JPEG", quality=85)
             jpeg_data = jpeg_buffer.getvalue()
 
             # Replace the existing cover with the new JPEG format
-            audio['art'] = jpeg_data
+            audio['artwork'] = jpeg_data
             audio.save()
+            
 
 if __name__ == '__main__':
     print(to_traditional('测试'))
