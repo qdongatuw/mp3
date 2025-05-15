@@ -1,6 +1,6 @@
 from tkinter.filedialog import askopenfilenames
-import moviepy
-# from moviepy.editor import VideoFileClip, concatenate_videoclips
+# import moviepy
+from moviepy.editor import VideoFileClip, concatenate_videoclips
 
 # 读取所有视频
 clips = askopenfilenames(defaultextension='.mp4')
