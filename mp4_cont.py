@@ -3,7 +3,9 @@ import moviepy
 # from moviepy import editor
 
 # 读取所有视频
-clips = askopenfilenames(defaultextension='.mp4')
+files = askopenfilenames(defaultextension='.mp4')
+
+clips = [moviepy.VideoFileClip(i) for i in files]
 
 # 拼接视频
 final_clip = moviepy.concatenate_videoclips(clips)
